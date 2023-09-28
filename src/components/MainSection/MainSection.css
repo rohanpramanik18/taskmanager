@@ -1,0 +1,274 @@
+.header {
+  padding: 2rem;
+  font-size: 2rem;
+}
+
+.navbar-header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.main-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3rem 0;
+  gap: 1rem;
+}
+
+.task-section {
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+  align-items: end;
+}
+
+.task-list {
+  height: 40rem;
+  width: 50rem;
+  background-color: #211c21;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  overflow-y: scroll;
+  border-radius: 15px;
+  border: 2rem solid #211c21;
+}
+
+.task-description {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.task-details {
+  height: 15rem;
+  width: 39rem;
+  background-color: #211c21;
+  border-radius: 15px;
+  overflow-y: scroll;
+}
+
+.sub-tasks {
+  height: 25rem;
+  width: 37rem;
+  background-color: #211c21;
+  border-radius: 15px;
+  border: 1rem solid #211c21;
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0;
+}
+
+.search-input,
+.form-input {
+  border: 2px solid white;
+  border-radius: 30px;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+  margin-right: 1rem;
+  background-color: #4a384a;
+  color: white;
+  font-weight: 700;
+}
+
+.search-btn {
+  margin: 1.2rem 0;
+  padding: 0.5rem 1rem;
+  background-color: purple;
+  border: 2px solid white;
+  border-radius: 25px;
+  color: black;
+}
+
+.task-add-btn {
+  width: 4.7rem;
+  text-align: center;
+  border: 3px solid white;
+  border-radius: 50px;
+  background-color: purple;
+  position: sticky;
+  margin-left: 80%;
+  left: 8rem;
+  bottom: 3rem;
+  padding: 1rem 0;
+}
+
+.task {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  justify-content: space-between;
+  background-color: #4a384a;
+  padding: 0.5rem;
+  margin: 0.7rem auto;
+  border-radius: 10px;
+  color: white;
+}
+
+.selected-task {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  justify-content: space-between;
+  background-color: white;
+  padding: 0.5rem;
+  margin: 0.7rem auto;
+  border-radius: 10px;
+  color: black;
+}
+
+.task-name {
+  width: 30%;
+  margin-left: 0.5rem;
+  word-wrap: break-word;
+  font-weight: 800;
+  font-size: 1.3rem;
+}
+
+.delete-btn {
+  padding: 1.4rem 1.2rem;
+}
+
+.time-and-date {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal-background {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.modal-form {
+  position: fixed;
+  z-index: 3;
+  width: 45rem;
+  height: 45rem;
+  background-color: #302930;
+  top: 15%;
+  left: 30%;
+  border-radius: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  width: 100%;
+}
+
+.form-label {
+  width: 50%;
+  margin-left: 0.5rem;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: white;
+  margin-left: 3rem;
+}
+
+form {
+  padding: 2rem 1rem;
+}
+
+.time-and-date-input {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-btn {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.form-btn-text {
+  text-align: center;
+  width: 20%;
+  margin: 1.2rem 0;
+  padding: 0.5rem 1rem;
+  background-color: purple;
+  border: 2px solid white;
+  border-radius: 25px;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+textarea {
+  border: 2px solid white;
+  border-radius: 30px;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+  margin-right: 1rem;
+  background-color: #4a384a;
+  color: white;
+  font-weight: 700;
+}
+
+.task-details-container {
+  margin-left: 1rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.task-details-name {
+  margin: 0.7rem 0.5rem;
+  font-weight: 800;
+  font-size: 2rem;
+  color: white;
+}
+
+.task-details-desc {
+  margin-left: 0.5rem;
+  font-weight: 800;
+  font-size: 1rem;
+  color: white;
+}
+
+.subtask-add-btn {
+  text-align: center;
+  border: 3px solid white;
+  border-radius: 50px;
+  background-color: purple;
+  position: sticky;
+  margin-left: 85%;
+  margin-top: 15%;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.time-and-date-details {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+}
+
+.task-name-st {
+  width: 30%;
+  margin-left: 0.5rem;
+  word-wrap: break-word;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: white;
+}
