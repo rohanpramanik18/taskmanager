@@ -4,17 +4,28 @@ import { AiFillCalendar } from "react-icons/ai";
 import "./MainSection.css";
 import { useState } from "react";
 
-export default function Task({ taskItem, onTaskClick }) {
-  const [isSelectedTask, setIsSelecetedTask] = useState(false);
-
+export default function Task({
+  taskItem,
+  onTaskClick,
+  taskID,
+  currentSelectedTask,
+  deleteTask,
+}) {
   const onTaskItemClick = () => {
     onTaskClick(taskItem.taskID);
-    setIsSelecetedTask((prevState) => (prevState ? false : true));
+  };
+
+  const onDeleteButtonClick = () => {
+    if (
+      window.confirm(`Do you want to delete the task :- ${taskItem.taskName} ?`)
+    ) {
+      deleteTask(taskItem.taskID);
+    }
   };
 
   return (
     <div
-      className={isSelectedTask ? "selected-task" : "task"}
+      className={taskID === currentSelectedTask ? "selected-task" : "task"}
       onClick={onTaskItemClick}
     >
       <p className="task-name">{taskItem.taskName}</p>
@@ -28,7 +39,9 @@ export default function Task({ taskItem, onTaskClick }) {
           {taskItem.taskEndDate} to {taskItem.taskEndDate}
         </p>
       </div>
-      <div className="delete-btn">{<MdDelete size={30} color="#4a384a" />}</div>
+      <div className="delete-btn">
+        {<MdDelete size={30} color="#4a384a" onClick={onDeleteButtonClick} />}
+      </div>
     </div>
   );
 }

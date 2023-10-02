@@ -55,6 +55,11 @@ export default function ModalForm({ closeModal, onTaskSubmit }) {
     }));
   };
 
+  const onSubmitClick = () => {
+    onTaskSubmit(userInput);
+    closeModal();
+  };
+
   return (
     <div className="modal-background" onClick={closeModal}>
       <div className="modal-form" onClick={(e) => e.stopPropagation()}>
@@ -111,11 +116,8 @@ export default function ModalForm({ closeModal, onTaskSubmit }) {
             <div className="form-btn-text" onClick={closeModal}>
               Close
             </div>
-            <div
-              className="form-btn-text"
-              onClick={() => onTaskSubmit(userInput)}
-            >
-              Submit
+            <div className="form-btn-text" onClick={onSubmitClick}>
+              Add
             </div>
           </div>
         </form>

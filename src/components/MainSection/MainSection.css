@@ -57,6 +57,8 @@
   background-color: #211c21;
   border-radius: 15px;
   border: 1rem solid #211c21;
+  overflow-y: scroll;
+  position: relative;
 }
 
 .search-bar {
@@ -249,9 +251,9 @@ textarea {
   border: 3px solid white;
   border-radius: 50px;
   background-color: purple;
-  position: sticky;
-  margin-left: 85%;
-  margin-top: 15%;
+  position: fixed;
+  left: 88%;
+  top: 70%;
   display: flex;
   justify-content: center;
   padding: 0.5rem;
@@ -271,4 +273,15 @@ textarea {
   font-weight: 800;
   font-size: 1.3rem;
   color: white;
+}
+
+.subtask-modal-form {
+  position: fixed;
+  z-index: 3;
+  width: 35rem;
+  height: 18rem;
+  background-color: #302930;
+  top: 25%;
+  left: 35%;
+  border-radius: 20px;
 }

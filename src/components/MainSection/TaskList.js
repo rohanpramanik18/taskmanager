@@ -5,7 +5,13 @@ import Task from "./Task";
 import { useState } from "react";
 import ModalForm from "./ModalForm";
 
-export default function TaskList({ onTaskClick, taskList, onTaskSubmit }) {
+export default function TaskList({
+  onTaskClick,
+  taskList,
+  onTaskSubmit,
+  currentSelectedTask,
+  deleteTask,
+}) {
   const [formVisibility, setFormVisibility] = useState(false);
 
   const onAddBtnClick = () => {
@@ -25,7 +31,14 @@ export default function TaskList({ onTaskClick, taskList, onTaskSubmit }) {
         </button>
       </div>
       {taskList.map((task) => (
-        <Task taskItem={task} key={task.taskID} onTaskClick={onTaskClick} />
+        <Task
+          taskItem={task}
+          key={task.taskID}
+          onTaskClick={onTaskClick}
+          taskID={task.taskID}
+          currentSelectedTask={currentSelectedTask}
+          deleteTask={deleteTask}
+        />
       ))}
       <div className="task-add-btn" onClick={onAddBtnClick}>
         <MdAdd color="white" size={40} />

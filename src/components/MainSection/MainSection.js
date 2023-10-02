@@ -63,21 +63,27 @@ export default function MainSection() {
     },
   ]);
 
-  const onTaskSubmit = (userInputObject) => {
-    setTaskList((prevState) => {
-      console.log(prevState + " PREV STATE");
-      return prevState.push({
-        ...userInputObject,
-        taskID: Math.floor(Math.random() * 1000),
-      });
+  const deleteTask = (taskId) => {
+    let newTaskList = [];
+    taskList.map((task) => {
+      if (task.taskID !== taskId) {
+        newTaskList.push(task);
+      }
     });
+    setTaskList(newTaskList);
   };
 
-  console.log(taskList + "  TASK LIST");
+  const onTaskSubmit = (userInputObject) => {
+    setTaskList([
+      ...taskList,
+      {
+        ...userInputObject,
+        taskID: Math.floor(Math.random() * 1000),
+      },
+    ]);
+  };
 
-  useEffect(() => console.log(taskList), [taskList]);
-
-  const subTaskList = [
+  const [subTaskList, setSubtaskList] = useState([
     {
       taskID: "t3",
       subTasks: [
@@ -85,9 +91,45 @@ export default function MainSection() {
         "Plant new tress",
         "Dump the wastes in dustbin",
         "Maintain cleanliness on the beach",
+        "abc",
+        "xyz",
+        "hello",
+        "iphone",
+        "android",
+        "mac",
+        "windows",
       ],
     },
-  ];
+  ]);
+
+  useEffect(() => console.log(subTaskList), [subTaskList]);
+
+  const onSubtaskAdd = (taskID, subtaskInput) => {
+    console.log(taskID + "  :  " + subtaskInput);
+    let newSubtask = {
+      taskID: taskID,
+    };
+    let isSubtaskPresent = false;
+    let newSubtaskList = [];
+    subTaskList.map((subTasks) => {
+      if (subTasks.taskID === taskID) {
+        isSubtaskPresent = true;
+        newSubtaskList.push({
+          taskID: taskID,
+          subTasks: [...subTasks.subTasks, subtaskInput],
+        });
+      } else {
+        newSubtaskList.push(subTasks);
+      }
+    });
+    if (!isSubtaskPresent) {
+      newSubtaskList.push({
+        taskID: taskID,
+        subTasks: [subtaskInput],
+      });
+    }
+    setSubtaskList(newSubtaskList);
+  };
 
   const [currentSelectedTask, setCurrentSelectedTask] = useState("0");
 
@@ -107,10 +149,16 @@ export default function MainSection() {
           onTaskClick={onTaskClick}
           taskList={taskList}
           onTaskSubmit={onTaskSubmit}
+          currentSelectedTask={currentSelectedTask}
+          deleteTask={deleteTask}
         />
         <div className="task-description">
           <TaskDetails taskID={currentSelectedTask} taskList={taskList} />
-          <SubTasks taskID={currentSelectedTask} subTaskList={subTaskList} />
+          <SubTasks
+            taskID={currentSelectedTask}
+            subTaskList={subTaskList}
+            onSubtaskAdd={onSubtaskAdd}
+          />
         </div>
       </div>
     </div>
